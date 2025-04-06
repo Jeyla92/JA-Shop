@@ -1,0 +1,8 @@
+<div class="spots-wrapper">
+  <div class="spot" *ngFor="let spot of spots">
+    <a [href]="spot.link" target="_blank" rel="noopener noreferrer">
+      <img [src]="spot.image" alt="{{ spot.text }}" />
+      <div class="overlay">{{ spot.text }}</div>
+    </a>
+  </div>
+</div>
