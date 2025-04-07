@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 import { SpotsComponent } from './spots/spots.component';
 import { FooterComponent } from './footer/footer.component';
@@ -7,8 +8,15 @@ import { FooterComponent } from './footer/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeroComponent, SpotsComponent, FooterComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    HeroComponent,
+    SpotsComponent,
+    FooterComponent,
+  ],
   template: `
+    <app-header></app-header>
     <app-hero></app-hero>
     <app-spots></app-spots>
     <app-footer></app-footer>
