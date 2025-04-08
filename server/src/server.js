@@ -10,12 +10,22 @@ const db = new Database("db/database.db", { verbose: console.log });
 app.use(cors());
 
 app.get("/api/products", (req, res) => {
-  try {
-    const stmt = db.prepare("SELECT * FROM products");
-    const products = stmt.all();
-    res.json(products);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  const searchQuery = req.query.search
+    ? req.query.search.toString().toLowerCase()
+    : "";
+
+  const stmt = db.prepare("SELECT * FROM products");
+  const allProducts = stmt.all();
+
+  if (searchQuery) {
+    const filteredProducts = allProducts.filter(
+      (product) =>
+        product.name.toLowerCase().includes(searchQuery) ||
+        product.description.toLowerCase().includes(searchQuery)
+    );
+    res.json(filteredProducts);
+  } else {
+    res.json(allProducts);
   }
 });
 
