@@ -5,7 +5,14 @@
 
   <div class="search-container">
     <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="text" class="search-input" placeholder="Sök produkt..." />
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Sök produkt..."
+      [(ngModel)]="searchQuery"
+      name="search"
+      (keyup.enter)="onSearch()"
+    />
   </div>
 
   <div class="icon-container">

@@ -1,0 +1,31 @@
+.search-page {
+  padding: 2rem;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}

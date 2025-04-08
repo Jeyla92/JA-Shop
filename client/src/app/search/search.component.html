@@ -1,0 +1,24 @@
+<div class="search-page">
+  <h2>Hittade {{ products.length }} produkter</h2>
+
+  <div class="product-grid">
+    <ng-container *ngIf="products.length > 0; else noProducts">
+      <div class="product-card" *ngFor="let product of products; index as i">
+        <a [routerLink]="['/products', product.id]">
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            class="product-image"
+          />
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.price }}</p>
+          <p>{{ product.brand }}</p>
+        </a>
+      </div>
+    </ng-container>
+
+    <ng-template #noProducts>
+      <p>Inga produkter matchar din sökning.</p>
+    </ng-template>
+  </div>
+</div>
