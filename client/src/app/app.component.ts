@@ -4,9 +4,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProductCardComponent } from './card/product-card.component'; // ✅ lägg till
-import { FeaturesComponent } from './features/features.component';
-
 
 @Component({
   selector: 'app-root',
