@@ -5,5 +5,6 @@ export interface Product {
     price: number;
     imageUrl: string;
     slug: string; // för URL, t.ex. "svart-tshirt"
+    description?: string; 
   }
-  
+
