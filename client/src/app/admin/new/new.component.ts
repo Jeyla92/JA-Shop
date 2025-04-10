@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-new',
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.scss'],
+  imports: [ReactiveFormsModule, CommonModule],
 })
-export class NewComponent implements OnInit {
+export class NewComponent {
   productForm: FormGroup;
   isSubmitting = false;
 
@@ -21,18 +19,14 @@ export class NewComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.productForm = this.fb.group({
-      name: ['', [Validators.required, Validators.maxLength(15)]],
-      description: ['', [Validators.required, Validators.maxLength(50)]],
-      urlToImage: ['', Validators.required],
-      SKU: [
-        '',
-        [Validators.required, Validators.pattern('[A-Za-z]{3}[0-9]{3}')],
-      ],
-      price: ['', [Validators.required, Validators.maxLength(10)]],
+      name: [''],
+      description: [''],
+      brand: [''],
+      image: [''],
+      SKU: [''],
+      price: [''],
     });
   }
 
@@ -45,7 +39,7 @@ export class NewComponent implements OnInit {
     this.http.post('/api/products', product).subscribe({
       next: (response: any) => {
         console.log('Product saved:', response);
-        this.router.navigate(['/admin/products']);
+        this.router.navigate(['/admin/list']);
       },
       error: (error) => {
         console.error('Error:', error);

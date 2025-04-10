@@ -13,18 +13,18 @@ app.use(express.json());
 
 // POST endpoint to add a new product
 app.post("/api/products", (req, res) => {
-  const { name, description, urlToImage, SKU, price } = req.body;
+  const { name, description, image, brand, SKU, price } = req.body;
 
-  if (!name || !description || !urlToImage || !SKU || !price) {
+  if (!name || !description || !image || !brand || !SKU || !price) {
     return res.status(400).json({ error: "All fields are required" });
   }
 
   const stmt = db.prepare(
-    "INSERT INTO products (name, description, urlToImage, SKU, price) VALUES (?, ?, ?, ?, ?)"
+    "INSERT INTO products (name, description, image, brand, SKU, price) VALUES (?, ?, ?, ?, ?, ?)"
   );
 
   try {
-    const result = stmt.run(name, description, urlToImage, SKU, price);
+    const result = stmt.run(name, description, image, brand, SKU, price);
     res.status(201).json({
       id: result.lastInsertRowid,
       message: "Product added successfully",

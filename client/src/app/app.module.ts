@@ -4,24 +4,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { ProductCardComponent } from './card/product-card.component';
-
-// Lägg till andra komponenter här senare om du skapar fler
+import { NewComponent } from './admin/new/new.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductCardComponent
-  ],
+  declarations: [AppComponent, ProductCardComponent, NewComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-     ReactiveFormsModule,
-    RouterModule.forRoot([]) // Om du har routes, fyll i dem här
+    ReactiveFormsModule,
+    RouterModule.forRoot([]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

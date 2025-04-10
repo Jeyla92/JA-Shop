@@ -20,7 +20,7 @@
       </div>
 
       <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-        <label>Titel</label>
+        <label>Namn</label>
         <input
           formControlName="name"
           placeholder="Ange produktnamn"
@@ -36,14 +36,16 @@
           maxlength="50"
         ></textarea>
 
-        <label for="urlToImage">Bild</label>
-        <input formControlName="urlToImage" placeholder="Ange URL" required />
+        <label for="image">Bild</label>
+        <input formControlName="image" placeholder="Ange URL" required />
+
+        <label for="brand">Märke</label>
+        <input formControlName="brand" placeholder="Ange märke" required />
 
         <label><strong>Sku</strong></label>
         <input
           formControlName="SKU"
           placeholder="ABC123"
-          pattern="[A-Za-z]{3}[0-9]{3}"
           title="SKU must be in the format: 3 letters followed by 3 digits (e.g., ABC123)"
           required
         />
@@ -55,10 +57,7 @@
           required
           maxlength="10"
         />
-
-        <button type="submit" [disabled]="productForm.invalid || isSubmitting">
-          Lägg till
-        </button>
+        <button type="submit" [disabled]="isSubmitting">Lägg till</button>
       </form>
     </div>
   </div>
