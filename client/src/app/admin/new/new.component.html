@@ -1,0 +1,65 @@
+<div class="admin-container">
+  <div class="main-content">
+    <div class="sidebar">
+      <ul>
+        <li><a href="#">Produkt</a></li>
+        <li><a href="#">Beställningar</a></li>
+        <li><a href="#">Kundhantering</a></li>
+        <li><a href="#">Innehållshantering</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+
+    <div class="content-area">
+      <div class="header">
+        <h1>Administration</h1>
+      </div>
+
+      <div class="content-section">
+        <h2 class="section-title">Ny produkt</h2>
+      </div>
+
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <label>Titel</label>
+        <input
+          formControlName="name"
+          placeholder="Ange produktnamn"
+          required
+          maxlength="15"
+        />
+
+        <label>Beskrivning</label>
+        <textarea
+          formControlName="description"
+          placeholder="Ange beskrivning."
+          required
+          maxlength="50"
+        ></textarea>
+
+        <label for="urlToImage">Bild</label>
+        <input formControlName="urlToImage" placeholder="Ange URL" required />
+
+        <label><strong>Sku</strong></label>
+        <input
+          formControlName="SKU"
+          placeholder="ABC123"
+          pattern="[A-Za-z]{3}[0-9]{3}"
+          title="SKU must be in the format: 3 letters followed by 3 digits (e.g., ABC123)"
+          required
+        />
+
+        <label>Pris</label>
+        <input
+          formControlName="price"
+          placeholder="Ange pris"
+          required
+          maxlength="10"
+        />
+
+        <button type="submit" [disabled]="productForm.invalid || isSubmitting">
+          Lägg till
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

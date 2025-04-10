@@ -1,0 +1,61 @@
+.admin-container {
+  padding: 2rem;
+}
+
+.main-content {
+  display: flex;
+}
+
+.sidebar {
+  background-color: #91b6c5;
+  color: white;
+}
+
+.sidebar ul li {
+  margin-right: 1rem;
+  list-style-type: none;
+  font-size: 1rem;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: block;
+  padding: 1rem 2rem;
+}
+
+.sidebar ul li a:hover {
+  background-color: #417589;
+  border-radius: 0.5rem;
+}
+
+.content-area {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.header {
+  background-color: #367690;
+  padding: 2rem;
+  color: white;
+}
+
+.content-section {
+  display: flex;
+  margin-top: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 5rem;
+}
