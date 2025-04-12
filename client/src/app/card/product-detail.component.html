@@ -1,5 +1,5 @@
 <div class="product-detail" *ngIf="product">
-    <img class="product-image" [src]="product.imageUrl" [alt]="product.name" />
+    <img class="product-image" [src]="product.image" [alt]="product.name" />
   
     <div class="product-info">
       <h2>{{ product.name }}</h2>
@@ -19,7 +19,7 @@
     <h3>Liknande produkter</h3>
     <div class="product-list">
       <div *ngFor="let p of similarProducts" class="product-card" (click)="goToProduct(p.id)">
-        <img [src]="p.imageUrl" [alt]="p.name" />
+        <img [src]="p.image" [alt]="p.name" />
         <p>{{ p.name }}</p>
         <p>{{ p.price }} SEK</p>
       </div>

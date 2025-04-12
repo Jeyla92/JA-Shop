@@ -3,8 +3,8 @@ export interface Product {
     name: string;
     brand: string;
     price: number;
-    imageUrl: string;
-    slug: string; // för URL, t.ex. "svart-tshirt"
+    image: string;
+    url_slug: string; // för URL, t.ex. "svart-tshirt"
     description?: string; 
   }
 

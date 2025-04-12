@@ -56,6 +56,20 @@ app.get("/api/products", (req, res) => {
   }
 });
 
+// GET endpoint to fetch a specific product by ID
+app.get("/api/products/:slug", (req, res) => {
+  const { slug } = req.params;
+
+  const stmt = db.prepare("SELECT * FROM products WHERE url_slug = ?");
+  const product = stmt.get(slug);
+
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404).json({ error: "Product not found" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
