@@ -4,7 +4,7 @@
   <div class="product-grid">
     <ng-container *ngIf="products.length > 0; else noProducts">
       <div class="product-card" *ngFor="let product of products; index as i">
-        <a [routerLink]="['/products', product.id]">
+        <a [routerLink]="['/products', product.url_slug]">
           <img
             [src]="product.image"
             [alt]="product.name"

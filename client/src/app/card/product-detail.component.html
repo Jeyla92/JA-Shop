@@ -5,7 +5,7 @@
       <h2>{{ product.name }}</h2>
       <p class="brand">{{ product.brand }}</p>
       <p class="description">{{ product.description }}</p>
-      <p class="price">{{ product.price }} SEK</p>
+      <p class="price">{{ product.price }} </p>
   
       <button (click)="addToCart(product)">Lägg i varukorg</button>
     </div>
@@ -18,10 +18,10 @@
   <div class="similar-products" *ngIf="similarProducts.length > 0">
     <h3>Liknande produkter</h3>
     <div class="product-list">
-      <div *ngFor="let p of similarProducts" class="product-card" (click)="goToProduct(p.id)">
+      <div *ngFor="let p of similarProducts" class="product-card" (click)="goToProduct(p.url_slug)">
         <img [src]="p.image" [alt]="p.name" />
         <p>{{ p.name }}</p>
-        <p>{{ p.price }} SEK</p>
+        <p>{{ p.price }} </p>
       </div>
     </div>
   </div>

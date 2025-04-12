@@ -16,7 +16,6 @@ export class ProductDetailComponent implements OnInit {
   product: Product | undefined;
   similarProducts: Product[] = [];
   allProducts: Product[] = [];  
-  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -34,7 +33,7 @@ export class ProductDetailComponent implements OnInit {
 
           if (this.product) {
             this.similarProducts = this.allProducts
-            .filter(p => p.id !== this.product?.id)
+            .filter(p => p.url_slug !== this.product?.url_slug)
             .slice(0, 3);
           }
         });
@@ -46,12 +45,13 @@ export class ProductDetailComponent implements OnInit {
     alert(`${product.name} tillagd i varukorgen!`);
   }
 
-  goToProduct(id: number) {
-    console.log(this);
-    
-    const clickedProduct = this.allProducts.find(p => p.id === id);
-    if (clickedProduct) {      
-      this.router.navigate(['/products', clickedProduct.url_slug]);
-    }
+  goToProduct(slug: string) {
+    this.router.navigate(['/products', slug]).then(() => {
+      window.scrollTo(0, 0);
+    });
   }
+  
+    
+   
+  
 }
